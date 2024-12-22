@@ -1,0 +1,34 @@
+body {
+	background-image: url('../img/background.png');
+	background-position: center;
+	background-attachment: fixed;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.error__inner {
+	text-align: center;
+	color: #4FB76B;
+	font-weight: bold;
+	line-height: 1;
+	width: 100%;
+}
+
+.con-error {
+	height: calc(100vh - 280px);
+	margin-top: 150px;
+	display: flex;
+	align-items: center;
+
+	background-color: #fff;
+	border-radius: 5px;
+}
+
+.error__inner h2 {
+	font-size: 64px;
+	text-transform: uppercase;
+}
+
+.error__inner h1 {
+	font-size: 300px;
+}

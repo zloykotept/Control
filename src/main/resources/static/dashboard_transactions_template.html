@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style/css/main-style.css">
+	<link rel="stylesheet" href="style/css/dashboard.css">
+	<title>Control - Dashboard</title>
+</head>
+<body>
+	<header class="header">
+		<div class="container">
+			<div class="header__inner">
+				<img src="style/icons/LOGO.svg" alt="" class="logo">
+
+				<div class="burger" onclick="burgerActive()">
+					<span class="burger__line"></span>
+					<span class="burger__line"></span>
+					<span class="burger__line"></span>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div class="cat__part">
+		<div class="container">
+			<div class="cat__part__inner">
+				<div class="cat__element"><h3>General</h3></div>
+				<div class="cat__element"><h3>Income</h3></div>
+				<div class="cat__element"><h3>Periodically</h3></div>
+				<div class="cat__element active"><h3>Food</h3></div>
+				<div class="cat__element"><img class="cat__element__plus" src="style/icons/plus.svg" alt=""></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="transactions__part">
+		<div class="container">
+			<div class="transactions__part__inner">
+				<div class="time-period">
+					<h3>Month</h3>
+					<div class="triangle"></div>
+				</div>
+
+				<h1 class="blue" style="font-weight: bold; margin-bottom: 20px;">Limitation: 12.000 RUB</h1>
+
+				<div class="transactions__element">
+					<div class="transactions__element__content">
+						<h2 class="red">-2.000 RUB</h2>
+						<h2>Food</h2>
+					</div>
+					<div class="transactions__element__content">
+						<h2>11.12.2024 at 14:58</h2>
+						<img src="style/icons/trash.svg" alt="" class="delete-icon">
+					</div>
+				</div>
+				<div class="transactions__element">
+					<div class="transactions__element__content">
+						<h2 class="red">-2.000 RUB</h2>
+						<h2>Food</h2>
+					</div>
+					<div class="transactions__element__content">
+						<h2>11.12.2024 at 14:58</h2>
+						<img src="style/icons/trash.svg" alt="" class="delete-icon">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="burger__frame" onclick="hideBurger(event)">
+		<div class="burger__menu">
+			<div class="burger__menu__inner">
+				<div class="profile">
+					<img src="/profile?get=picture" alt="" class="profile__img" onclick="uploadFile(true)">
+					<h1 onclick="renameUserField()"></h1>
+				</div>
+				<h2></h2>
+				<div class="burger__element" onclick="passwordField()">
+					<img src="style/icons/settings.png" alt="" class="burger__element__icon">
+					<h1>Change password</h1>
+				</div>
+				<div class="bottom__element">
+					<a href="/logout"><img src="style/icons/logout.svg" alt="" class="bottom__element__icon"></a>
+					<img src="style/icons/moon.svg" alt="" class="bottom__element__icon">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="bottom__btn plus-btn">
+		<img src="style/icons/plus.svg" alt="" class="bottom__btn__icon">
+	</div>
+	<div class="bottom__btn settings-btn" onclick="showSettings()">
+		<img src="style/icons/settings.png" alt="" class="bottom__btn__icon">
+	</div>
+
+	<script src="style/js/dashboard.js" defer></script>
+</body>

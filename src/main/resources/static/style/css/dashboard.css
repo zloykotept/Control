@@ -1,0 +1,365 @@
+body {
+	color: #939393;
+}
+.blue {
+	color: #2E7BF0;
+}
+.red {
+	color: #FF5A5A;
+}
+.green {
+	color: #4FB76B;
+}
+/* HEADER */
+.burger {
+	display: flex;
+	cursor: pointer;
+}
+.burger__line{
+	background-color: #fff;
+	width: 50px;
+	height: 4px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+}
+/* BURGER                                     */
+.burger__frame {
+	display: none;
+	opacity: 0;
+	transition: all .5s linear
+}
+.burger__frame.active {
+	opacity: 1;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1001;
+	width: 100%;
+	height: 100%;
+
+	display: flex;
+	justify-content: end;
+	align-items: center;
+
+	background-color: rgba(0, 0, 0, 0.3);
+	transition: all .5s linear
+}
+.burger__menu {
+	margin-right: 45px;
+	width: 500px;
+	height: calc(100% - 50px);
+	background-color: #ffffff;
+	border-radius: 5px;
+	padding: 40px;
+}
+.burger__menu__inner {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+.burger__menu__inner h2 {
+	margin-bottom: 45px;
+}
+.profile {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+}
+.profile__img {
+	height: 90px;
+	width: 90px;
+	border-radius: 50%;
+	margin-right: 20px;
+}
+.burger__element {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	margin-bottom: 20px;
+}
+.burger__element__icon {
+	width: 50px;
+	height: 50px;
+	margin-right: 20px;
+}
+.bottom__element {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: absolute;
+	bottom: 0;
+}
+.bottom__element__icon {
+	height: 50px;
+	width: 50px;
+	cursor: pointer;
+}
+.bottom__element__icon:hover {
+	filter: brightness(0) saturate(100%) invert(57%) sepia(81%) saturate(301%) hue-rotate(84deg) brightness(94%) contrast(87%);
+}
+h1 {
+	color: #939393;
+	font-size: 36px;
+	font-weight: normal;
+}
+h2 {
+	color: #939393;
+	font-size: 24px;
+	font-weight: normal;
+}
+/* CATEGORIES */
+.cat__part {
+	margin-top: 105px;
+	margin-bottom: 35px;
+	height: 35px;
+	width: 100%;
+}
+.cat__part__inner {
+	width: 100%;
+	display: flex;
+	column-gap: 30px;
+}
+.cat__element {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-right: 18px;
+	padding-left: 18px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	cursor: pointer;
+
+	background-color: #e6e6e6;
+	border-radius: 50px;
+	border-width: 3px;
+	border-color: #939393;
+	border-style: solid;
+}
+.cat__element:last-child {
+	padding: 0;
+}
+.cat__element__plus {
+	filter: invert(52%) sepia(6%) saturate(0%) hue-rotate(180deg) brightness(93%) contrast(87%);
+	height: 15px;
+	width: 15px;
+	margin: 8px;
+}
+.cat__element.active {
+	background-color: #99dcab;
+	border-color: #0D6023;
+}
+.cat__element h3 {
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 1;
+}
+.cat__element.active h3 {
+	color: #0D6023;
+}
+/* INFO PART           */
+.info__part {
+	width: 100%;
+}
+.info__part__inner {
+	display: flex;
+}
+.info__part__inner h1{
+	font-weight: bold;
+}
+.general__part {
+	width: 50%;
+}
+.additional__part {
+	width: 50%;
+}
+.income {
+	color: #4FB76B;
+}
+.expenses {
+	color: #FF5A5A;
+}
+.time-period {
+	display: flex;
+	align-items: center;
+	column-gap: 10px;
+	cursor: pointer;
+}
+.triangle {
+	width: 0;
+	height: 0;
+	border-left: 8px solid transparent;
+	border-right: 8px solid transparent;
+	border-top: 16px solid #939393;
+	margin-bottom: 0;
+}
+h3 {
+	font-weight: 400;
+	font-size: 24px;
+}
+.overview__element {
+	margin-top: 20px;
+}
+.progress-bar {
+	position: relative;
+	width: 500px;
+	height: 25px;
+	background-color: #E6E6E6;
+	margin-top: 15px;
+}
+.progress-bar-fill {
+	position: absolute;
+	height: 25px;
+}
+.progress-bar-fill.red {
+	background-color: #FF5A5A;
+}
+.progress-bar-fill.blue {
+	background-color: #2E7BF0;
+}
+.progress-bar-fill.green {
+	background-color: #4FB76B;
+}
+.periodical__expenses__title {
+	display: flex;
+	align-items: center;
+	column-gap: 30px;
+	margin-top: 20px;
+}
+.btn__dash{
+	padding: 8px 25px;
+	font-size: 20px;
+	font-weight: 700;
+	text-transform: uppercase;
+	color: #fff;
+	border: 0;
+	margin: 0;
+	text-align: center;
+	cursor: pointer;
+	transition: background-color .1s linear;
+
+	border-radius: 5px;
+}
+.btn-red:hover{
+	background-color: #C71F1F;
+}
+.btn-red {
+	background-color: #FF5A5A;
+	box-shadow: 0 5px 6px #C71F1F;
+}
+.btn-green:hover{
+	background-color: #0D6023;
+}
+.btn-green {
+	background-color: #008523;
+	box-shadow: 0 5px 6px #0D6023;
+}
+.additional__part {
+	display: flex;
+	align-items: flex-end;
+	flex-direction: column;
+}
+.goal__element {
+	display: flex;
+	align-items: flex-end;
+	flex-direction: column;
+	margin-bottom: 30px;
+}
+.goal__title {
+	display: flex;
+	align-items: center;
+	justify-content: end;
+	column-gap: 30px;
+	margin-top: 20px;
+}
+/* TRANSACTIOS PART */
+.transactions__part {
+	width: 100%;
+}
+.transactions__part h2 {
+	font-weight: 400;
+	font-size: 32px;
+}
+.transactions__part__inner .time-period {
+	margin-bottom: 20px;
+}
+.transactions__element {
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid #939393;
+	padding-top: 10px;
+	padding-bottom: 10px;
+
+	transition: all .1s linear;
+}
+.transactions__element:hover {
+	background-color: #E6E6E6;
+}
+.transactions__element__content {
+	display: flex;
+	column-gap: 30px;
+	align-items: center;
+}
+.delete-icon {
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+}
+.delete-icon:hover {
+	filter: brightness(0) saturate(100%) invert(57%) sepia(81%) saturate(301%) hue-rotate(84deg) brightness(94%) contrast(87%);
+}
+/* PLUS AND SETTINGS */
+.bottom__btn {
+	height: 90px;
+	width: 90px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #008523;
+	border-radius: 15px;
+	cursor: pointer;
+	box-shadow: 0 5px 6px #0D6023;
+
+	position: absolute;
+	bottom: 50px;
+
+	transition: all .1s linear;
+}
+.bottom__btn:hover {
+	background-color: #0D6023;
+}
+.bottom__btn__icon {
+	height: 60px;
+	width: 60px;
+	filter: brightness(0) saturate(100%) invert(99%) sepia(4%) saturate(2%) hue-rotate(55deg) brightness(112%) contrast(100%);
+}
+.plus-btn {
+	right: 50px;
+}
+.settings-btn {
+	right: 170px;
+}
+/* CONTEXT */
+.context {
+	display: none;
+}
+.context.active {
+	display: block;
+	list-style: none;
+	position: fixed;
+	margin: 0;
+	padding: 15px 20px;
+	background: #ffffff;
+	border-radius: 5px;
+	border: 1px solid #939393;
+}
+.context.active li {
+	width: 100%;
+	color: #939393;
+	transition: all .1s linear;
+	cursor: pointer;
+}
+.context.active li:hover {
+	color: #4FB76B;
+	background: #e6e6e6;
+}
