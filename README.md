@@ -24,6 +24,8 @@ This was made for learning purposes
 ```bash
 git clone https://github.com/zloykotept/Control.git
 ```
+### Build project using Intellij IDEA (or another build system)
+Required environment variables: JWT_SECRET (256 bit string); PG_PASSWORD (password for **postgres** user); SERVER_PORT;
 
 After starting, the application will be available at: `http://localhost`.
 
