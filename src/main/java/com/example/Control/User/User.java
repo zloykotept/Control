@@ -2,14 +2,11 @@ package com.example.Control.User;
 
 import jakarta.persistence.*;
 import lombok.Getter;
-import org.hibernate.annotations.ColumnDefault;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -19,7 +16,7 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    private byte[] password;
+    private String password;
     private Integer balance;
 
     @PrePersist
@@ -30,7 +27,7 @@ public class User implements UserDetails {
     public User() {
     }
 
-    public User(String name, byte[] password) {
+    public User(String name, String password) {
         this.name = name;
         this.password = password;
     }
@@ -39,7 +36,7 @@ public class User implements UserDetails {
         this.name = name;
     }
 
-    public void setPassword(byte[] password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
@@ -52,7 +49,7 @@ public class User implements UserDetails {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", password=" + Arrays.toString(password) +
+                ", password=" + password +
                 ", balance=" + balance +
                 '}';
     }

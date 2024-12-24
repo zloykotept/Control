@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS users (
     "id"	SERIAL,
     "name"	VARCHAR(30) NOT NULL UNIQUE,
-    "password"	BYTEA NOT NULL,
+    "password"	TEXT NOT NULL,
     "balance"	INTEGER NOT NULL DEFAULT 0,
     PRIMARY KEY("id")
 );
