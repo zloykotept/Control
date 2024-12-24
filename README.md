@@ -1,6 +1,6 @@
 # Control
 
-Control is a user-friendly application for managing personal finances. With it, you can track monthly expenses, receive payment reminders, and plan financial goals for saving and budgeting.
+Control is an application for managing personal finances. With it, you can track monthly expenses, receive payment reminders, and plan financial goals for saving and budgeting.
 This was made for learning purposes
 
 ## Key Features
