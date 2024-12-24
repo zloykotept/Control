@@ -8,7 +8,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="style/css/main-style.css">
 	<link rel="stylesheet" href="style/css/login.css">
-	<title>Control - Login</title>
+	<title>Control - Sign up</title>
 </head>
 <body>
 	<header class="header">
@@ -17,9 +17,9 @@
 				<img src="style/icons/LOGO.svg" alt="" class="logo">
 
 				<nav class="header__nav">
-					<a href="#" class="nav__links">Home</a>
+					<a href="/login" class="nav__links">Log in</a>
 					<a href="https://t.me/ZloyKot228" class="nav__links">Support</a>
-					<a href="https://t.me/ZloyKot228" class="nav__links">Info</a>
+					<a href="/signup" class="nav__links">Sign up</a>
 				</nav>
 				
 				<div class="burger" onclick="burgerActive()">
@@ -36,11 +36,13 @@
 			<div class="login">
 				<div class="login__back">
 					<div class="login__inner">
-						<h1 class="login__title">Log in</h1>
-						<form onsubmit="sendLogin(event)" class="login__form">
-							<input type="text" name="login" class="login__input" placeholder="Login"><br>
+						<h1 class="login__title">Sign up</h1>
+						<form onsubmit="sendSignup(event)" class="login__form">
+							<input type="text" name="name" class="login__input" placeholder="Login"><br>
 							<input type="password" name="password" class="login__input input-pass" placeholder="Password">
 							<img src="style/icons/eye-hide.svg" alt="" class="pass-icon" onclick="setIcon(event)"><br>
+							<input type="password" name="password-confirm" class="login__input input-pass input-pass-confirm" placeholder="Retype password">
+							<img src="style/icons/eye-hide.svg" alt="" class="pass-icon second-icon" onclick="setIcon(event)"><br>
 							<button type="submit" class="login__btn">submit</button>
 						</form>
 					</div>

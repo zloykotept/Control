@@ -42,7 +42,7 @@ function sendLogin(event) {
 	event.preventDefault();
 	const formData = new FormData(loginForm);
 
-	fetch('/login', {
+	fetch('/auth/login', {
         method: 'POST',
         body: formData
     })
@@ -53,7 +53,7 @@ function sendLogin(event) {
 			passIcon.classList.add("pass-icon-red");
     	}
     	if (response.ok) {
-    		window.location.href = '/dashboard';
+    		window.location.href = '/test';
     	}
     })
     .then(data => {
@@ -66,14 +66,15 @@ function sendLogin(event) {
 
 function sendSignup(event) {
 	event.preventDefault();
-	const formData = new FormData(loginForm);
 	if (loginInput[1].value !== loginInput[2].value) {
 		loginInput[1].classList.add("input-red");
 		loginInput[2].classList.add("input-red");
 		return;
 	}
+	const formData = new FormData(loginForm);
 
-	fetch('/signup', {
+
+	fetch('/auth/signup', {
         method: 'POST',
         body: formData
     })
@@ -84,7 +85,7 @@ function sendSignup(event) {
 			passIcon.classList.add("pass-icon-red");
     	}
     	if (response.ok) {
-    		window.location.href = '/dashboard';
+    		window.location.href = '/test';
     	}
     })
     .then(data => {

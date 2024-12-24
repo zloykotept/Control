@@ -24,8 +24,10 @@ public class SecurityConfig {
         http.csrf(csrf -> csrf.disable());
 
         http.authorizeHttpRequests(auth -> auth
-                .requestMatchers("/auth/**").permitAll()
+                .requestMatchers("/auth/**", "/login", "/signup", "/style/**").permitAll()
                 .anyRequest().authenticated());
+
+        http.formLogin(form -> form.loginPage("/login"));
 
         http.sessionManagement(sess -> sess
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS));
