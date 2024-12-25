@@ -1,6 +1,6 @@
 # Control
 
-Control is a user-friendly application for managing personal finances. With it, you can track monthly expenses, receive payment reminders, and plan financial goals for saving and budgeting.
+Control is an application for managing personal finances. With it, you can track monthly expenses, receive payment reminders, and plan financial goals for saving and budgeting.
 This was made for learning purposes
 
 ## Key Features
@@ -24,6 +24,7 @@ This was made for learning purposes
 ```bash
 git clone https://github.com/zloykotept/Control.git
 ```
+### Manually create "**control**" database in postgres
 ### Build project using Intellij IDEA (or another build system)
 Required environment variables:
 - JWT_SECRET (256 bit string)
@@ -40,7 +41,7 @@ After starting, the application will be available at: `http://localhost`.
 
 ## Technologies
 - **Frontend:** Vue
-- **Backend:** Spring Boot
+- **Backend:** Spring Boot 3 (Spring framework 6)
 - **Database:** PostgreSQL
 - **API:** REST
 
