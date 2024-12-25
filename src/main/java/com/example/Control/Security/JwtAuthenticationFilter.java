@@ -31,7 +31,11 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
         final Cookie[] cookies = request.getCookies();
         String token = null;
         if (cookies == null) {
-            filterChain.doFilter(request, response);
+            try {
+                filterChain.doFilter(request, response);
+            } catch (Exception ex) {
+                throw new ServletException(ex);
+            }
             return;
         }
 
@@ -39,7 +43,11 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             if (cookie.getName().equals("Auth")) token = cookie.getValue();
         }
         if (token == null || token.isEmpty()) {
-            filterChain.doFilter(request, response);
+            try {
+                filterChain.doFilter(request, response);
+            } catch (Exception ex) {
+                throw new ServletException(ex);
+            }
             return;
         }
 
@@ -50,7 +58,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             );
 
             if (jwtService.isTokenValid(token, userId)) {
-                UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+                UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(userId, null, userDetails.getAuthorities());
                 authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                 SecurityContextHolder.getContext().setAuthentication(authToken);
             } else {
@@ -58,6 +66,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             }
         }
 
-        filterChain.doFilter(request, response);
+        try {
+            filterChain.doFilter(request, response);
+        } catch (Exception ex) {
+            throw new ServletException(ex);
+        }
     }
 }
