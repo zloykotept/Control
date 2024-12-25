@@ -24,6 +24,7 @@ This was made for learning purposes
 ```bash
 git clone https://github.com/zloykotept/Control.git
 ```
+### Manually create "**control**" database in postgres
 ### Build project using Intellij IDEA (or another build system)
 Required environment variables:
 - JWT_SECRET (256 bit string)
