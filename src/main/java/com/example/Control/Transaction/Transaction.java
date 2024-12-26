@@ -22,12 +22,15 @@ public class Transaction {
     private Integer value;
     @Column(name = "category_id")
     private UUID categoryId;
+    @Column(name = "user_id")
+    private Integer userId;
 
-    public Transaction(Integer value, String name, UUID categoryId, Boolean incomeBool) {
+    public Transaction(Integer value, String name, UUID categoryId, Boolean incomeBool, Integer userId) {
         this.value = value;
         this.name = name;
         this.categoryId = categoryId;
         this.incomeBool = incomeBool;
+        this.userId = userId;
     }
 
     @Override
