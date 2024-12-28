@@ -29,7 +29,7 @@ public class CategoryController {
         }
         if (name == null) return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("CAT_BAD_REQUEST");
 
-        ResponseMessage response = categoryService.save(name, limit, userId).orElseThrow();
+        ResponseMessage response = categoryService.save(name, limit, userId);
         return ResponseEntity.status(response.getStatus()).body(response.getError());
     }
 
@@ -39,7 +39,7 @@ public class CategoryController {
         Integer userId = (Integer)authentication.getPrincipal();
         if (name == null) return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("CAT_BAD_REQUEST");
 
-        ResponseMessage response = categoryService.delete(name, userId).orElseThrow();
+        ResponseMessage response = categoryService.delete(name, userId);
         return ResponseEntity.status(response.getStatus()).body(response.getError());
     }
 
@@ -58,7 +58,7 @@ public class CategoryController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("CAT_BAD_REQUEST");
         }
 
-        ResponseMessage response = categoryService.update(name, limit, target, userId).orElseThrow();
+        ResponseMessage response = categoryService.update(name, limit, target, userId);
         return ResponseEntity.status(response.getStatus()).body(response.getError());
     }
 
@@ -67,7 +67,7 @@ public class CategoryController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Integer userId = (Integer)authentication.getPrincipal();
 
-        ResponseMessage response = categoryService.get(userId).orElseThrow();
+        ResponseMessage response = categoryService.get(userId);
         if (response.getError() != null) return ResponseEntity.status(response.getStatus()).body(response.getError());
         return ResponseEntity.status(response.getStatus()).contentType(response.getContentType()).body(response.getMessage());
     }

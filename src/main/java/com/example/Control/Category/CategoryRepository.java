@@ -7,6 +7,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 public interface CategoryRepository extends JpaRepository<Category, UUID> {
@@ -23,4 +24,7 @@ public interface CategoryRepository extends JpaRepository<Category, UUID> {
 
     @Query(value = "SELECT * FROM categories WHERE user_id = :user_id", nativeQuery = true)
     List<Category> findAllByUserId(@Param("user_id") Integer userId);
+
+    @Query(value = "SELECT * FROM categories WHERE name = :name AND user_id = :user_id", nativeQuery = true)
+    Optional<Category> findByName(@Param("name") String name, @Param("user_id") Integer userId);
 }

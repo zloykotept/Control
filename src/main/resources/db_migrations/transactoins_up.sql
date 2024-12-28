@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS transactions (
     "name"	VARCHAR(30) NOT NULL,
     "income_bool"	BOOLEAN NOT NULL,
     "value"	INTEGER NOT NULL,
+	"date" TIMESTAMP NOT NULL DEFAULT NOW(),
 	"category_id" UUID NOT NULL,
 	"user_id" INTEGER NOT NULL,
 	FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE CASCADE,

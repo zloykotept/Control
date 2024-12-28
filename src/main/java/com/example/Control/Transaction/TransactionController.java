@@ -1,6 +1,7 @@
 package com.example.Control.Transaction;
 
 import com.example.Control.ResponseMessage;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,7 +39,7 @@ public class TransactionController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Integer userId = (Integer) authentication.getPrincipal();
 
-        ResponseMessage response = transactionService.save(name, income, value, catId, userId).orElseThrow();
+        ResponseMessage response = transactionService.save(name, income, value, catId, userId);
         return ResponseEntity.status(response.getStatus()).body(response.getError());
     }
 
@@ -55,7 +56,20 @@ public class TransactionController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Integer userId = (Integer) authentication.getPrincipal();
 
-        ResponseMessage response = transactionService.delete(id, userId).orElseThrow();
+        ResponseMessage response = transactionService.delete(id, userId);
         return ResponseEntity.status(response.getStatus()).body(response.getError());
+    }
+
+    @GetMapping
+    public ResponseEntity<String> getTransactions(@RequestParam(value = "category", required = false) String catIdString,
+                                                  @RequestParam(value = "time", required = false) String timePeriod) throws JsonProcessingException {
+        if (timePeriod == null) return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("TRANSACTIONS_BAD_REQUEST");
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Integer userId = (Integer) authentication.getPrincipal();
+
+        ResponseMessage response = transactionService.get(catIdString, timePeriod, userId);
+        if (response.getError() != null) return ResponseEntity.status(response.getStatus()).body(response.getError());
+        return ResponseEntity.status(response.getStatus()).contentType(response.getContentType()).body(response.getMessage());
     }
 }

@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
 import java.util.UUID;
 
 @Entity
@@ -20,6 +21,9 @@ public class Transaction {
     @Column(name = "income_bool")
     private Boolean incomeBool;
     private Integer value;
+    @Column(name = "date", updatable = false, insertable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date date;
     @Column(name = "category_id")
     private UUID categoryId;
     @Column(name = "user_id")
@@ -40,7 +44,9 @@ public class Transaction {
                 ", name='" + name + '\'' +
                 ", incomeBool=" + incomeBool +
                 ", value=" + value +
+                ", date='" + date + '\'' +
                 ", categoryId=" + categoryId +
+                ", userId=" + userId +
                 '}';
     }
 }
