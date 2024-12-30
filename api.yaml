@@ -1,0 +1,160 @@
+openapi: 3.0.0
+info:
+  title: Control - Budget Controller
+  version: "1.0"
+servers:
+  - url: http://localhost/
+    description: Server?
+paths:
+  /transactions:
+    get:
+      summary: Get as json
+      tags:
+        - Transactions
+      parameters:
+        - in: query
+          name: time
+          required: true
+          schema:
+            type: string
+            enum:
+              - week
+              - month
+              - year
+        - in: query
+          name: category
+          required: false
+          schema:
+            type: string
+            example: a62e7d99-8f54-4235-933b-518ec705ca37
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Transactions"
+        '400':
+          description: Bad request
+          content:
+            text/html:
+              schema:
+                type: string
+                example: TRANSACTIONS_BAD_REQUEST
+    post:
+      summary: Create transaction
+      tags:
+        - Transactions
+      parameters:
+        - in: query
+          name: name
+          required: true
+          schema:
+            type: string
+            example: food
+        - in: query
+          name: income
+          required: true
+          schema:
+            type: boolean
+            example: false
+        - in: query
+          name: value
+          required: true
+          schema:
+            type: integer
+            example: 299
+        - in: query
+          name: category
+          required: true
+          schema:
+            type: string
+            example: b9e85a47-0c68-4659-a683-922d4e3133b5
+      responses:
+        '200':
+          description: Success
+          content:
+            text/html:
+              schema:
+                type: string
+                example: OK
+        '400':
+          description: Bad request
+          content:
+            text/html:
+              schema:
+                type: string
+                example: TRANSACTIONS_BAD_REQUEST
+        '500':
+          description: Internal Server Error
+          content:
+            text/html:
+              schema:
+                type: string
+                example: TRANSACTIONS_POST_INTERNAL
+    delete:
+      summary: Delete
+      tags:
+        - Transactions
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+            example: a62e7d99-8f54-4235-933b-518ec705ca37
+      responses:
+        '200':
+          description: Success
+          content:
+            text/html:
+              schema:
+                type: string
+                example: OK
+        '400':
+          description: Bad request
+          content:
+            text/html:
+              schema:
+                type: string
+                example: TRANSACTIONS_BAD_REQUEST
+        '404':
+          description: Not such element
+          content:
+            text/html:
+              schema:
+                type: string
+                example: TRANSACTIONS_DELETE_NOT_FOUND
+            
+components:
+  schemas:
+    Transaction:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: string
+          example: b9e85a47-0c68-4659-a683-922d4e3133b5
+        name:
+          type: string
+          example: food
+        incomeBool:
+          type: boolean
+          example: false
+        value:
+          type: integer
+          example: 200
+        date:
+          type: integer
+          example: 1735379796063
+        categoryId:
+          type: string
+          example: a62e7d99-8f54-4235-933b-518ec705ca37
+        userId:
+          type: string
+          example: 1
+    Transactions:
+      type: array
+      items:
+        $ref: "#/components/schemas/Transaction"

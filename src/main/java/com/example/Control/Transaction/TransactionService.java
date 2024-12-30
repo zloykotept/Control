@@ -1,6 +1,5 @@
 package com.example.Control.Transaction;
 
-import com.example.Control.Category.Category;
 import com.example.Control.Category.CategoryRepository;
 import com.example.Control.ResponseMessage;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -10,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -43,7 +41,7 @@ public class TransactionService {
 
     public ResponseMessage get(String catIdString, String timePeriod, Integer userId) throws JsonProcessingException {
         if (!timePeriod.equals("week") && !timePeriod.equals("month") && !timePeriod.equals("year")) {
-            return ResponseMessage.builder().status(HttpStatus.BAD_REQUEST).error("TRANSACTIONS_BAD_REQUEST").build();
+                return ResponseMessage.builder().status(HttpStatus.BAD_REQUEST).error("TRANSACTIONS_BAD_REQUEST").build();
         }
 
         String transactionsSerialized;
