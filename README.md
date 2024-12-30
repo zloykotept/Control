@@ -43,7 +43,7 @@ After starting, the application will be available at: `http://localhost`.
 - **Frontend:** Vue
 - **Backend:** Spring Boot 3 (Spring framework 6)
 - **Database:** PostgreSQL
-- **API:** REST
+- **API:** REST, Openapi 3.0.0
 
 ## Screenshots
 (WILL BE)
