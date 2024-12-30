@@ -12,12 +12,9 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-@Slf4j
 public class CategoryService {
     final private CategoryRepository categoryRepository;
 
@@ -35,7 +32,6 @@ public class CategoryService {
         try {
             modified = categoryRepository.deleteByName(name, userId);
         } catch (Exception e) {
-            log.error(e.getMessage());
             return ResponseMessage.builder().status(HttpStatus.INTERNAL_SERVER_ERROR).error("CAT_DELETE_INTERNAL").build();
         }
 
@@ -50,7 +46,6 @@ public class CategoryService {
         } catch (DataIntegrityViolationException e) {
             return ResponseMessage.builder().status(HttpStatus.CONFLICT).error("CAT_PUT_CONFLICT").build();
         } catch (Exception e) {
-            log.error(e.getMessage());
             return ResponseMessage.builder().status(HttpStatus.INTERNAL_SERVER_ERROR).error("CAT_PUT_INTERNAL").build();
         }
 
@@ -63,7 +58,6 @@ public class CategoryService {
         try {
             responseList = categoryRepository.findAllByUserId(userId);
         } catch (Exception e) {
-            log.error(e.getMessage());
             return ResponseMessage.builder().status(HttpStatus.INTERNAL_SERVER_ERROR).error("CAT_GET_INTERNAL").build();
         }
 

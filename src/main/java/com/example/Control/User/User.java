@@ -2,6 +2,7 @@ package com.example.Control.User;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -10,6 +11,7 @@ import java.util.Collection;
 
 @Entity
 @Table(name = "users")
+@NoArgsConstructor
 @Getter
 public class User implements UserDetails {
     @Id
@@ -22,9 +24,6 @@ public class User implements UserDetails {
     @PrePersist
     public void prePersist() {
         if (this.balance == null) this.balance = 0;
-    }
-
-    public User() {
     }
 
     public User(String name, String password) {
